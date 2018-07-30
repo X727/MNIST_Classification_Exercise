@@ -27,18 +27,15 @@ def main():
 
     for type in clfs:
         scores = cross_val_score(clfs[type], X_train, y_train_0, cv=10, scoring='accuracy')
-        print("Cross-validation scores for "+type+":\n")
+        print("Cross-validation scores for {}:\n".format(type))
         print(scores)
         y_pred = cross_val_predict(clfs[type], X_test, y_test_0)
         cm = confusion_matrix(y_test_0, y_pred)
-        print("Confusion matrix for "+type+":\n")
+        print("Confusion matrix for {}:\n".format(type))
         print(cm)
         rs = recall_score(y_test_0, y_pred)
         ps = precision_score(y_test_0, y_pred)
-        print("Recall is :" + str(rs) + "\t Precision is: "+str(ps))
-
-
-
+        print("Recall is {0:.2f} \t Precision is: {0:.2f}".format(rs,ps))
 
 if __name__ == '__main__':
     main()

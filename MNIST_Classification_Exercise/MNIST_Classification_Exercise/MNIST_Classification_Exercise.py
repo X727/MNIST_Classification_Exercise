@@ -10,6 +10,10 @@ from sklearn.metrics import confusion_matrix, precision_score, recall_score, pre
 import time
 
 def main():
+    '''
+    Presents metrics and precision recall curves for finding zeros in the MNIST dataset.
+    Compares Logistic Regression and SGD Classifier. Precision-Recall vs. Thresholds figures printed to pdf.
+    '''
     mnist = fetch_mldata('MNIST original')
 
     X, y = mnist['data'], mnist['target']
